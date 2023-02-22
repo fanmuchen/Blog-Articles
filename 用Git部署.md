@@ -4,7 +4,7 @@
 
 那么，能不能利用 Git 来管理生产环境中的服务器（以 Linux 为例）呢？使用 Git 来自动部署服务器上的文件，简化工作流。同时利用 Git 的版本管理功能进行快速的版本切换，便于测试和回退。
 
-答案是可以的。配置完成后，仅需一条"Git push production"命令即可完成更新，大大提升部署的效率。
+答案是可以的。配置完成后，仅需一条"git push production"命令即可完成更新，大大提升部署的效率。
 
 ## 实现原理和前提条件
 
@@ -27,7 +27,7 @@
 ```shell
 mkdir ~/你的项目.git
 cd ~/你的项目.git
-Git --bare init
+git --bare init
 ```
 
 ## 在 "post-receive" 钩子中添加自动化
@@ -35,16 +35,16 @@ Git --bare init
 在裸仓库的 hooks 目录中，创建一个**带有执行权限的脚本**，该脚本的作用是将内容从裸仓库拉取到生产环境：
 
 ```shell
-nano ~/你的项目.git/hooks/post-receive
+vim ~/你的项目.git/hooks/post-receive
 ```
 
 写入如下内容：
 
 ```shell
 #!/bin/bash
-unset Git_DIR
+unset GIT_DIR
 cd 你的服务器文件所在的路径
-Git pull
+git pull
 ```
 
 将该文件设置为可执行：
@@ -58,8 +58,8 @@ chmod +x ~/你的项目.git/hooks/post-receive
 在本地仓库中添加一个额外的远程仓库：
 
 ```shell
-Git remote add production 你的用户名@服务器地址:你的项目.git
-Git push production
+git remote add production 你的用户名@服务器地址:你的项目.git
+git push production
 ```
 
 ## Voilà
