@@ -2,7 +2,7 @@
 
 绝大部分人经常使用的 Git 命令只有极少的一部分，不常使用的命令容易遗忘，故制作此速查表。
 
-###仓库管理
+### 仓库管理
 
 - `git init`: 初始化仓库。
 - `git clone <url>`: 克隆仓库。
@@ -12,14 +12,14 @@
 - `git push`: 推送本地提交到远程仓库。
 - `git fetch`: 从远程仓库获取最新更新，但不合并到本地仓库。
 
-###分支管理
+### 分支管理
 
 - `git branch`: 查看分支信息。
 - `git checkout <branch>`: 切换到指定分支。
 - `git merge <branch>`: 将指定分支合并到当前分支。
 - `git tag`: 标记某个提交点。
 
-###提交管理
+### 提交管理
 
 - `git add <file>`: 将文件添加到暂存区。
 - `git commit -m "<message>"`: 提交暂存区中的文件，并添加提交信息。
@@ -28,7 +28,7 @@
 - `git mv <old-file> <new-file>`: 重命名或移动文件。
 - `git stash`: 将当前工作区的修改保存到一个栈中。
 
-###状态查询
+### 状态查询
 
 - `git status`: 查看当前仓库的状态。
   `git status --short`: F*MC 喜欢的格式*
@@ -36,7 +36,7 @@
   `git log --all --graph --oneline`: _FMC 喜欢的格式_
 - `git diff`: 查看当前工作区与暂存区的差异。
 
-###初始配置
+### 初始配置
 
 ```bash
 git config --global user.name "名字"
